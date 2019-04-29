@@ -3,7 +3,7 @@ class Path(object):
     @staticmethod
     def db_root_dir(database):
         if database == 'pascal':
-            return '/path/to/PASCAL/VOC2012'  # folder that contains VOCdevkit/.
+            return 'E:\\VOCtrainval_11-May-2012\\VOCdevkit'  # folder that contains VOCdevkit/.
 
         elif database == 'sbd':
             return '/path/to/SBD/'  # folder with img/, inst/, cls/, etc.
