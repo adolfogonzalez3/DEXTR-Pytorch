@@ -131,8 +131,12 @@ if __name__ == '__main__':
     save_dir_root = package_path.parent
     exp_name = package_path.name
     if resume_epoch == 0:
-        run_id = max([int(r.name.rsplit('_', -1)[-1])
-                      for r in save_dir_root.glob('run_*')])
+        runs = [int(r.name.rsplit('_', -1)[-1])
+                for r in save_dir_root.glob('run_*')]
+        if len(runs) == 0:
+            run_id = 0
+        else:
+            run_id = max(runs)
     else:
         run_id = 0
     save_dir = save_dir_root / ('run_%d' % run_id)
