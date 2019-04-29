@@ -29,6 +29,7 @@ from dataloaders.helpers import *
 
 from networks.deeplab_resnet import ClassifierModule, PSPModule
 
+from tqdm import trange, tqdm
 
 def main():
     parser = argparse.ArgumentParser()
@@ -95,11 +96,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--use_notebook', action='store_true')
     args = parser.parse_args()
-    if args.use_notebook:
-        from tqdm import tnrange as trange
-        from tqdm import tqdm_notebook as tqdm
-    else:
-        from tqdm import trange, tqdm
+    
     # Set gpu_id to -1 to run in CPU mode, otherwise set the id of the corresponding gpu
     gpu_id = 0
     device = torch.device("cuda:%d" % gpu_id if torch.cuda.is_available() else "cpu")
