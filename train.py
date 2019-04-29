@@ -76,7 +76,7 @@ def test(net, testloader, device):
     running_loss = 0
     net.eval()
     with torch.no_grad():
-        for ii, sample_batched in enumerate(tqdm(testloader)):
+        for ii, sample_batched in enumerate(tqdm(testloader, leave=False)):
             inputs = sample_batched['concat'].to(device)
             gts = sample_batched['crop_gt'].to(device)
 
@@ -210,7 +210,7 @@ if __name__ == '__main__':
             start_time = timeit.default_timer()
 
             net.train()
-            for ii, sample_batched in enumerate(tqdm(trainloader)):
+            for ii, sample_batched in enumerate(tqdm(trainloader, leave=False)):
                 inputs = sample_batched['concat'].to(device)
                 gts = sample_batched['crop_gt'].to(device)
 
