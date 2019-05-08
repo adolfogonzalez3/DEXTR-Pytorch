@@ -20,11 +20,11 @@ from networks.deeplab_resnet import ClassifierModule, PSPModule
 
 from nets import create_densenet
 
-def demo(net):
+def demo(net, image_path='ims/soccer.jpg'):
     pad = 50
     thres = 0.8
     #  Read image and click the points
-    image = np.array(Image.open('ims/soccer.jpg'))
+    image = np.array(Image.open(image_path))
     plt.ion()
     plt.axis('off')
     plt.imshow(image)
