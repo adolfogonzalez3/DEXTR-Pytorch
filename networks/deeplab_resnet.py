@@ -94,7 +94,7 @@ class PSPModule(nn.Module):
         super(PSPModule, self).__init__()
         self.stages = []
         self.stages = nn.ModuleList([self._make_stage_1(in_features, size) for size in sizes])
-        self.bottleneck = self._make_stage_2(in_features * (len(sizes)//4 + 1), out_features)
+        self.bottleneck = self._make_stage_2((in_features + (in_features//4) * len(sizes)), out_features)
         self.relu = nn.ReLU()
         self.final = nn.Conv2d(out_features, n_classes, kernel_size=1)
 

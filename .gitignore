@@ -107,4 +107,8 @@ ENV/
 run_*
 
 *.json
+*.jpg
 *.png
+*.txt
+*.csv
+events.out.tfevents.*
